@@ -39,9 +39,9 @@ public class Tests extends Parent{
     @Test
     public void createUser(){
         newUser=new User();
-        newUser.setEmail("umut@gmail.com");
+        newUser.setEmail("umutdeneme@gmail.com");
         newUser.setName("test1");
-        newUser.setGender("female");
+        newUser.setGender("male");
         newUser.setStatus("active");
 
         Response body=
@@ -65,8 +65,8 @@ public class Tests extends Parent{
         String status=body.path("data.status");
 
         Assert.assertEquals(name,"test1");
-        Assert.assertEquals(email,"umut@gmail.com");
-        Assert.assertEquals(gender,"female");
+        Assert.assertEquals(email,"umutdeneme@gmail.com");
+        Assert.assertEquals(gender,"male");
         Assert.assertEquals(status,"active");
     }
 
