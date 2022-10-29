@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.baseURI;
 
 public class Parent {
     RequestSpecification requestSpecs;
-    ResponseSpecification responseSpecs200;
+    ResponseSpecification responseSpecs;
     @BeforeClass
     void Setup() {
 
@@ -22,7 +22,7 @@ public class Parent {
                 .setAccept(ContentType.JSON)
                 .build();
 
-        responseSpecs200 = new ResponseSpecBuilder()
+        responseSpecs = new ResponseSpecBuilder()
                 .expectStatusCode(200)
                 .expectContentType(ContentType.JSON)
                 .log(LogDetail.BODY)

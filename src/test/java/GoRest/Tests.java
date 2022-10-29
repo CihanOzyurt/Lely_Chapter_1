@@ -3,33 +3,25 @@ package GoRest;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 
 import static io.restassured.RestAssured.*;
 
-public class Test2CreateUserAndCreateUserNegative extends Parent{
-    /*@BeforeClass
-    void Setup() {
-        baseURI = "https://gorest.co.in/public/v1/users";
-    }*/
+public class Tests extends Parent{
 
     @Test
     public void dataId_Control() {
         ArrayList<Integer> idList=
                 given()
                         .spec(requestSpecs)
-                        //.contentType(ContentType.JSON)
 
                         .when()
                         .get(baseURI)
 
                         .then()
-                        //.contentType(ContentType.JSON)
-                        //.statusCode(200)
-                        .spec(responseSpecs200)
+                        .spec(responseSpecs)
                         .extract().path("data.id")
                 ;
         System.out.println("idList as Integer = " + idList);
@@ -42,15 +34,12 @@ public class Test2CreateUserAndCreateUserNegative extends Parent{
         }
     }
 
-
-
-
     User newUser;
 
     @Test
     public void createUser(){
         newUser=new User();
-        newUser.setEmail("em555@gmail.com");
+        newUser.setEmail("umut@gmail.com");
         newUser.setName("test1");
         newUser.setGender("female");
         newUser.setStatus("active");
@@ -60,6 +49,7 @@ public class Test2CreateUserAndCreateUserNegative extends Parent{
                 .header("Authorization","Bearer 1db9c9b6c959682be7c96f74ca532c3cb0bd331f46b86a92602f8d319481b6f5")
                 .contentType(ContentType.JSON)
                 .body(newUser)
+
                 .when()
                 .post(baseURI)
 
@@ -75,7 +65,7 @@ public class Test2CreateUserAndCreateUserNegative extends Parent{
         String status=body.path("data.status");
 
         Assert.assertEquals(name,"test1");
-        Assert.assertEquals(email,"em555@gmail.com");
+        Assert.assertEquals(email,"umut@gmail.com");
         Assert.assertEquals(gender,"female");
         Assert.assertEquals(status,"active");
     }
@@ -87,6 +77,7 @@ public class Test2CreateUserAndCreateUserNegative extends Parent{
                 .header("Authorization","Bearer 1db9c9b6c959682be7c96f74ca532c3cb0bd331f46b86a92602f8d319481b6f5")
                 .contentType(ContentType.JSON)
                 .body(newUser)
+
                 .when()
                 .post(baseURI)
 

@@ -1,3 +1,13 @@
+TEST1 --------------------Get Id List And Check-----------------
+Used GET for https://gorest.co.in/public/v1/users, checked that all of the data.id values are 4 digit integers
+and none of them are null.
+
+*****       *****       *****       *****       *****       *****       *****       *****       *****       *****
+IMPORTANT!!: Test3 and Test2 working with depends on methods and priority. So you can not run Test3 single.
+             For a success Test3 run, Test2 should be run and be success first.
+*****       *****       *****       *****       *****       *****       *****       *****       *****       *****
+
+
 TEST2 ---------------------- Create User -------------------------
 Create a POST request to https://gorest.co.in/public/v1/users, and check the response matches given data.
 User data must be sent in the body of the request as a JSON object.
