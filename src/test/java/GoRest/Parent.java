@@ -27,15 +27,7 @@ public class Parent {
                 .expectContentType(ContentType.JSON)
                 .log(LogDetail.BODY)
                 .build();
-
-        responseSpecs201 = new ResponseSpecBuilder()
-                .expectStatusCode(201)
-                .expectContentType(ContentType.JSON)
-                .log(LogDetail.BODY)
-                .build();
     }
-
-
 
     class User {
         private int id;
