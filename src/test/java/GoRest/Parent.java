@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.baseURI;
 
 public class Parent {
     RequestSpecification requestSpecs;
-    ResponseSpecification responseSpecs200,responseSpecs201;
+    ResponseSpecification responseSpecs200;
     @BeforeClass
     void Setup() {
 

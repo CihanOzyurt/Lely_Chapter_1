@@ -31,31 +31,4 @@ public class Test1_DataId_Control extends Parent{
             Assert.assertNotNull(strNumber);
         }
     }
-
-
-
-
-
-
-
-
-
-
-    //    RequestSpecification requestSpecs;
-//    ResponseSpecification responseSpecs;
-//    @BeforeClass
-//    void Setup() {
-//
-//        baseURI ="https://gorest.co.in/public/v1/users";
-//        requestSpecs = new RequestSpecBuilder()
-//                .log(LogDetail.URI)
-//                .setAccept(ContentType.JSON)
-//                .build();
-//
-//        responseSpecs = new ResponseSpecBuilder()
-//                .expectStatusCode(200)
-//                .expectContentType(ContentType.JSON)
-//                .log(LogDetail.BODY)
-//                .build();
-//    }
 }

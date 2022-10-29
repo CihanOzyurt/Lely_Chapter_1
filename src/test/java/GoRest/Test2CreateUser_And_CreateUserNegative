@@ -1,3 +1,4 @@
+TEST2 ---------------------- Create User -------------------------
 Create a POST request to https://gorest.co.in/public/v1/users, and check the response matches given data.
 User data must be sent in the body of the request as a JSON object.
 The Access token must be sent as a Bearer token in the http Authorization header.
@@ -8,3 +9,8 @@ email : umut@gmail.com
 name : test
 gender : male
 status : active
+
+TEST3 ---------------- Create User Negative--------------------
+Create a POST request to https://gorest.co.in/public/v1/users endpoint again with the same email address
+and verify that the user is not created. Log the message that returned from endpoint.
+"message": "has already been taken"

@@ -6,22 +6,51 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 
 import static io.restassured.RestAssured.*;
 
-public class Test2_Create_User extends Parent{
-    @BeforeClass
+public class Test2CreateUserAndCreateUserNegative extends Parent{
+    /*@BeforeClass
     void Setup() {
         baseURI = "https://gorest.co.in/public/v1/users";
+    }*/
+
+    @Test
+    public void dataId_Control() {
+        ArrayList<Integer> idList=
+                given()
+                        .spec(requestSpecs)
+                        //.contentType(ContentType.JSON)
+
+                        .when()
+                        .get(baseURI)
+
+                        .then()
+                        //.contentType(ContentType.JSON)
+                        //.statusCode(200)
+                        .spec(responseSpecs200)
+                        .extract().path("data.id")
+                ;
+        System.out.println("idList as Integer = " + idList);
+
+        for (Integer i:  idList) {
+            String strNumber=Integer.toString(i);
+
+            Assert.assertEquals(strNumber.length(),4);
+            Assert.assertNotNull(strNumber);
+        }
     }
+
+
+
 
     User newUser;
 
     @Test
     public void createUser(){
         newUser=new User();
-
-        newUser.setEmail("deneme100@gmail.com");
+        newUser.setEmail("em555@gmail.com");
         newUser.setName("test1");
         newUser.setGender("female");
         newUser.setStatus("active");
@@ -46,22 +75,14 @@ public class Test2_Create_User extends Parent{
         String status=body.path("data.status");
 
         Assert.assertEquals(name,"test1");
-        Assert.assertEquals(email,"deneme100@gmail.com");
+        Assert.assertEquals(email,"em555@gmail.com");
         Assert.assertEquals(gender,"female");
         Assert.assertEquals(status,"active");
     }
 
-    @Test//(dependsOnMethods = "createUser",priority = 1) if needs we can add priority
+    @Test(dependsOnMethods = "createUser",priority = 1)
     public void createUserNegative() {
-        String message;
-        newUser=new User();
-
-        newUser.setEmail("deneme100@gmail.com");
-        newUser.setName("test1");
-        newUser.setGender("female");
-        newUser.setStatus("active");
-
-        message=
+        String message=
         given()
                 .header("Authorization","Bearer 1db9c9b6c959682be7c96f74ca532c3cb0bd331f46b86a92602f8d319481b6f5")
                 .contentType(ContentType.JSON)
