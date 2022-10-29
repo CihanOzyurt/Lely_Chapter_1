@@ -1,0 +1,2 @@
+Used GET for https://gorest.co.in/public/v1/users, checked that all of the data.id values are 4 digit integers
+and none of them are null.

@@ -1,0 +1,10 @@
+Create a POST request to https://gorest.co.in/public/v1/users, and check the response matches given data.
+User data must be sent in the body of the request as a JSON object.
+The Access token must be sent as a Bearer token in the http Authorization header.
+Access-token: 1db9c9b6c959682be7c96f74ca532c3cb0bd331f46b86a92602f8d319481b6f5
+
+Example data:
+email : umut@gmail.com
+name : test
+gender : male
+status : active
