@@ -21,9 +21,9 @@ public class Test2_Create_User extends Parent{
     public void createUser(){
         newUser=new User();
 
-        newUser.setEmail("uuumut@gmail.com");
-        newUser.setName("test");
-        newUser.setGender("male");
+        newUser.setEmail("abcmut@gmail.com");
+        newUser.setName("test1");
+        newUser.setGender("female");
         newUser.setStatus("active");
 
         userID=
@@ -45,68 +45,10 @@ public class Test2_Create_User extends Parent{
                 .extract().jsonPath().getInt("data.id")
 
         ;
+        System.out.println("userID = " + userID);
 
 
 
 
     }
-//    class User {
-//        private int id;
-//        private String email;
-//        private String name;
-//        private String gender;
-//        private String status;
-//
-//        public int getId() {
-//            return id;
-//        }
-//
-//        public void setId(int id) {
-//            this.id = id;
-//        }
-//
-//        public String getEmail() {
-//            return email;
-//        }
-//
-//        public void setEmail(String email) {
-//            this.email = email;
-//        }
-//
-//        public String getName() {
-//            return name;
-//        }
-//
-//        public void setName(String name) {
-//            this.name = name;
-//        }
-//
-//        public String getGender() {
-//            return gender;
-//        }
-//
-//        public void setGender(String gender) {
-//            this.gender = gender;
-//        }
-//
-//        public String getStatus() {
-//            return status;
-//        }
-//
-//        public void setStatus(String status) {
-//            this.status = status;
-//        }
-//
-//        @Override
-//        public String toString() {
-//            return "User{" +
-//                    "id=" + id +
-//                    ", email='" + email + '\'' +
-//                    ", name='" + name + '\'' +
-//                    ", gender='" + gender + '\'' +
-//                    ", status='" + status + '\'' +
-//                    '}';
-//        }
-//    }
-
 }
