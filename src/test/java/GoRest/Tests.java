@@ -6,13 +6,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-
 import static io.restassured.RestAssured.*;
 
 public class Tests extends Parent{
 
     @Test
-    public void dataId_Control() {
+    public void dataId_Control()
+    {
         ArrayList<Integer> idList=
                 given()
                         .spec(requestSpecs)
@@ -39,7 +39,7 @@ public class Tests extends Parent{
     @Test
     public void createUser(){
         newUser=new User();
-        newUser.setEmail("umutdeneme@gmail.com");
+        newUser.setEmail("cihandeneme@gmail.com");
         newUser.setName("test1");
         newUser.setGender("male");
         newUser.setStatus("active");
@@ -65,7 +65,7 @@ public class Tests extends Parent{
         String status=body.path("data.status");
 
         Assert.assertEquals(name,"test1");
-        Assert.assertEquals(email,"umutdeneme@gmail.com");
+        Assert.assertEquals(email,"cihandeneme@gmail.com");
         Assert.assertEquals(gender,"male");
         Assert.assertEquals(status,"active");
     }
